@@ -1,0 +1,115 @@
+{% extends "base.html.twig" %}
+
+{% block title %}Modifier le post - ForumHub{% endblock %}
+
+{% block body %}
+<div class="container-lg">
+    <!-- Breadcrumb -->
+    <nav aria-label="breadcrumb">
+        <ol class="breadcrumb">
+            <li class="breadcrumb-item"><a href="{{ path('post_index') }}">Accueil</a></li>
+            <li class="breadcrumb-item"><a href="#">Comment débuter avec Symfony ?</a></li>
+            <li class="breadcrumb-item active">Modifier</li>
+        </ol>
+    </nav>
+
+    <div class="row">
+        <div class="col-lg-8 offset-lg-2">
+            <div class="card">
+                <div class="card-header">
+                    <h4 class="mb-0">
+                        <i class="fas fa-edit"></i> Modifier le post
+                    </h4>
+                </div>
+                <div class="card-body">
+                    <form method="POST" enctype="multipart/form-data">
+                        <!-- Titre -->
+                        <div class="mb-3">
+                            <label for="title" class="form-label fw-bold">
+                                Titre du post
+                            </label>
+                            <input type="text" class="form-control form-control-lg" id="title" 
+                                   name="title" value="Comment débuter avec Symfony ?" required maxlength="200">
+                        </div>
+
+                        <!-- Catégorie -->
+                        <div class="mb-3">
+                            <label for="category" class="form-label fw-bold">
+                                Catégorie
+                            </label>
+                            <select class="form-select" id="category" name="category" required>
+                                <option value="debutants" selected>Débutants</option>
+                                <option value="securite">Sécurité</option>
+                                <option value="bdd">Base de données</option>
+                                <option value="api">API</option>
+                                <option value="outils">Outils</option>
+                                <option value="autres">Autres</option>
+                            </select>
+                        </div>
+
+                        <!-- Tags -->
+                        <div class="mb-3">
+                            <label for="tags" class="form-label fw-bold">
+                                Tags
+                            </label>
+                            <input type="text" class="form-control" id="tags" name="tags"
+                                   value="Symfony, PHP, Débutant"
+                                   placeholder="Ex: Symfony, PHP, REST (séparés par des virgules)">
+                        </div>
+
+                        <!-- Contenu -->
+                        <div class="mb-3">
+                            <label for="content" class="form-label fw-bold">
+                                Contenu
+                            </label>
+                            <textarea class="form-control" id="content" name="content" rows="10" required>Bonjour à tous ! Je débute avec Symfony et j'aimerais avoir des conseils pour bien commencer...</textarea>
+                        </div>
+
+                        <!-- Dernière modification -->
+                        <div class="alert alert-info">
+                            <small><i class="fas fa-info-circle"></i> Dernière modification : 16 Fév 2026 à 10:30</small>
+                        </div>
+
+                        <!-- Actions -->
+                        <div class="d-flex gap-2 flex-wrap">
+                            <button type="submit" class="btn btn-primary btn-lg">
+                                <i class="fas fa-save"></i> Sauvegarder
+                            </button>
+                            <a href="#" class="btn btn-outline-secondary btn-lg">
+                                <i class="fas fa-times"></i> Annuler
+                            </a>
+                            <button type="button" class="btn btn-outline-danger btn-lg ms-auto" data-bs-toggle="modal" data-bs-target="#deleteModal">
+                                <i class="fas fa-trash"></i> Supprimer
+                            </button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Modal de confirmation suppression -->
+<div class="modal fade" id="deleteModal" tabindex="-1">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header" style="background: linear-gradient(135deg, #dc3545, #c82333); color: white;">
+                <h5 class="modal-title"><i class="fas fa-exclamation-triangle"></i> Supprimer le post</h5>
+                <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal"></button>
+            </div>
+            <div class="modal-body">
+                <p><strong>Attention !</strong> Êtes-vous certain de vouloir supprimer ce post ?</p>
+                <p class="text-muted">Cette action est irréversible. Tous les commentaires associés seront également supprimés.</p>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Annuler</button>
+                <form method="POST" action="#" style="display: inline;">
+                    <button type="submit" class="btn btn-danger">
+                        <i class="fas fa-trash"></i> Supprimer définitivement
+                    </button>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}

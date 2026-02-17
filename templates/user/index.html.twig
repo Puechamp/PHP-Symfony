@@ -1,0 +1,47 @@
+{% extends "base.html.twig" %}
+
+{% block title %}Communauté - ForumHub{% endblock %}
+
+{% block body %}
+<div class="container-lg">
+    <!-- Header -->
+    <div class="mb-5">
+        <h2><i class="fas fa-users"></i> Notre Communauté</h2>
+        <p class="text-muted">Découvrez les membres actifs de notre forum</p>
+    </div>
+
+    <!-- Filtres -->
+    <div class="card mb-4 bg-light">
+        <div class="card-body">
+            <div class="row g-3">
+                <div class="col-md-4">
+                    <input type="text" class="form-control" placeholder="Rechercher un utilisateur...">
+                </div>
+                <div class="col-md-4">
+                    <select class="form-select">
+                        <option selected>Tous les rôles</option>
+                        <option>Administrateur</option>
+                        <option>Modérateur</option>
+                        <option>Membre Premium</option>
+                        <option>Membre</option>
+                    </select>
+                </div>
+                <div class="col-md-4">
+                    <select class="form-select">
+                        <option selected>Plus actifs</option>
+                        <option>Nouveaux membres</option>
+                        <option>Plus de posts</option>
+                        <option>Plus de commentaires</option>
+                    </select>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Aucun utilisateur pour l'instant -->
+    <div class="alert alert-info">
+        <h5 class="mb-1">Aucun utilisateur pour l'instant</h5>
+        <p class="mb-0">La communauté est vide pour l'instant. Les utilisateurs apparaîtront ici une fois inscrits.</p>
+    </div>
+</div>
+{% endblock %}

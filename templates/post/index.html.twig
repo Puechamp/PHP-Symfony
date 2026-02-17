@@ -1,0 +1,134 @@
+{% extends "base.html.twig" %}
+
+{% block title %}Tous les Posts - ForumHub{% endblock %}
+
+{% block body %}
+<div class="container-lg">
+    <!-- Hero Section -->
+    <div class="hero-section">
+        <h1><i class="fas fa-comments"></i> Bienvenue sur ForumHub</h1>
+        <p>Rejoignez notre communauté de développeurs passionnés et partagez vos idées !</p>
+        <div class="gap-2 d-flex justify-content-center flex-wrap">
+            <a href="{{ path('post_new') }}" class="btn btn-light btn-lg">
+                <i class="fas fa-pen"></i> Créer un Post
+            </a>
+            <button class="btn btn-outline-light btn-lg">
+                <i class="fas fa-compass"></i> Explorer
+            </button>
+        </div>
+    </div>
+
+    <div class="row">
+        <!-- Sidebar Filtres -->
+        <div class="col-lg-3 mb-4">
+            <div class="card mb-4">
+                <div class="card-header">
+                    <h5 class="mb-0"><i class="fas fa-filter"></i> Filtres & Recherche</h5>
+                </div>
+                <div class="card-body">
+                    <!-- Recherche -->
+                    <div class="mb-4">
+                        <label class="form-label fw-bold"><i class="fas fa-search"></i> Rechercher</label>
+                        <div class="input-group">
+                            <input type="text" class="form-control" placeholder="Rechercher un post...">
+                            <button class="btn btn-outline-primary" type="button">
+                                <i class="fas fa-search"></i>
+                            </button>
+                        </div>
+                    </div>
+
+                    <!-- Catégories -->
+                    <div class="mb-4">
+                        <label class="form-label fw-bold"><i class="fas fa-folder"></i> Catégories</label>
+                        <div>
+                            <a href="#" class="filter-badge active">Tous</a>
+                            <a href="#" class="filter-badge">Débutants</a>
+                            <a href="#" class="filter-badge">Sécurité</a>
+                            <a href="#" class="filter-badge">Base de données</a>
+                            <a href="#" class="filter-badge">API</a>
+                            <a href="#" class="filter-badge">Outils</a>
+                        </div>
+                    </div>
+
+                    <!-- Tri -->
+                    <div class="mb-4">
+                        <label class="form-label fw-bold"><i class="fas fa-sort"></i> Trier par</label>
+                        <select class="form-select">
+                            <option selected>Plus récents</option>
+                            <option>Plus anciens</option>
+                            <option>Plus commentés</option>
+                            <option>Les plus aimés</option>
+                        </select>
+                    </div>
+
+                    <!-- Statistiques -->
+                    <div class="bg-light p-3 rounded">
+                        <h6 class="fw-bold"><i class="fas fa-chart-bar"></i> Statistiques</h6>
+                        <div class="list-group list-group-flush mt-2">
+                            <div class="list-group-item px-0 py-2 border-0">
+                                <small class="text-muted">Total Posts</small>
+                                <div class="h6 mb-0">0</div>
+                            </div>
+                            <div class="list-group-item px-0 py-2 border-0">
+                                <small class="text-muted">Utilisateurs Actifs</small>
+                                <div class="h6 mb-0">0</div>
+                            </div>
+                            <div class="list-group-item px-0 py-2 border-0">
+                                <small class="text-muted">Commentaires Total</small>
+                                <div class="h6 mb-0">0</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Tags Populaires -->
+            <div class="card">
+                <div class="card-header">
+                    <h5 class="mb-0"><i class="fas fa-tag"></i> Tags Populaires</h5>
+                </div>
+                <div class="card-body">
+                    <div>
+                        <span class="badge bg-primary me-1 mb-2">Symfony</span>
+                        <span class="badge bg-info me-1 mb-2">PHP</span>
+                        <span class="badge bg-success me-1 mb-2">Doctrine</span>
+                        <span class="badge bg-warning text-dark me-1 mb-2">API</span>
+                        <span class="badge bg-danger me-1 mb-2">Sécurité</span>
+                        <span class="badge bg-secondary me-1 mb-2">REST</span>
+                        <span class="badge bg-primary me-1 mb-2">Form</span>
+                        <span class="badge bg-info me-1 mb-2">Testing</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Posts Section -->
+        <div class="col-lg-9">
+            <!-- Header de la section -->
+            <div class="mb-4 d-flex justify-content-between align-items-center">
+                <h2><i class="fas fa-list"></i> Tous les Posts</h2>
+                <a href="{{ path('post_new') }}" class="btn btn-primary">
+                    <i class="fas fa-plus"></i> Nouveau Post
+                </a>
+            </div>
+
+            <!-- Aucun post pour l'instant -->
+            <div class="alert alert-info">
+                <h5 class="mb-1">Aucun post pour l'instant</h5>
+                <p class="mb-0">Il n'y a encore aucun post publié. Soyez le premier à <a href="{{ path('post_new') }}">créer un post</a>.</p>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script>
+    // Activation des filtres
+    document.querySelectorAll('.filter-badge').forEach(badge => {
+        badge.addEventListener('click', function(e) {
+            e.preventDefault();
+            document.querySelectorAll('.filter-badge').forEach(b => b.classList.remove('active'));
+            this.classList.add('active');
+        });
+    });
+</script>
+{% endblock %}

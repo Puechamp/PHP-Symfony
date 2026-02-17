@@ -1,0 +1,154 @@
+{% extends "base.html.twig" %}
+
+{% block title %}À Propos - ForumHub{% endblock %}
+
+{% block body %}
+<div class="container-lg">
+    <div class="row">
+        <div class="col-lg-8 offset-lg-2">
+            <!-- Header -->
+            <div class="text-center mb-5">
+                <h1 class="display-4 fw-bold mb-3">À Propos de ForumHub</h1>
+                <p class="lead text-muted">Découvrez notre histoire et notre mission</p>
+            </div>
+
+            <!-- Mission -->
+            <div class="card mb-4">
+                <div class="card-header">
+                    <h4 class="mb-0"><i class="fas fa-target"></i> Notre Mission</h4>
+                </div>
+                <div class="card-body">
+                    <p>
+                        ForumHub est une plateforme communautaire dédiée aux développeurs PHP et Symfony. 
+                        Notre mission est de créer un espace où les développeurs peuvent partager leurs connaissances, 
+                        poser des questions et s'entraider pour progresser ensemble.
+                    </p>
+                    <p>
+                        Nous croyons en l'importance de la communauté dans le développement logiciel et nous nous engageons 
+                        à fournir les meilleurs outils et ressources pour que chacun puisse s'épanouir.
+                    </p>
+                </div>
+            </div>
+
+            <!-- Valeurs -->
+            <div class="row mb-4">
+                <div class="col-md-6 mb-3">
+                    <div class="card h-100">
+                        <div class="card-body text-center">
+                            <div class="display-5 mb-3"><i class="fas fa-handshake text-primary"></i></div>
+                            <h5 class="card-title">Collaboration</h5>
+                            <p class="card-text">Nous favorisons la collaboration et l'échange entre les membres.</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-6 mb-3">
+                    <div class="card h-100">
+                        <div class="card-body text-center">
+                            <div class="display-5 mb-3"><i class="fas fa-graduation-cap text-info"></i></div>
+                            <h5 class="card-title">Apprentissage</h5>
+                            <p class="card-text">L'apprentissage continu est au cœur de notre communauté.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="row mb-5">
+                <div class="col-md-6 mb-3">
+                    <div class="card h-100">
+                        <div class="card-body text-center">
+                            <div class="display-5 mb-3"><i class="fas fa-lock text-success"></i></div>
+                            <h5 class="card-title">Sécurité</h5>
+                            <p class="card-text">Vos données sont sécurisées et votre confidentialité est respectée.</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-6 mb-3">
+                    <div class="card h-100">
+                        <div class="card-body text-center">
+                            <div class="display-5 mb-3"><i class="fas fa-star text-warning"></i></div>
+                            <h5 class="card-title">Excellence</h5>
+                            <p class="card-text">Nous visons l'excellence dans tout ce que nous faisons.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Équipe -->
+            <div class="card mb-4">
+                <div class="card-header">
+                    <h4 class="mb-0"><i class="fas fa-team"></i> Notre Équipe</h4>
+                </div>
+                <div class="card-body">
+                    <div class="row text-center">
+                        <div class="col-md-4 mb-3">
+                            <img src="https://ui-avatars.com/api/?name=Pierre+Leval&size=80&background=0D8ABC&color=fff" 
+                                 alt="Pierre Léval" class="rounded-circle mb-2" width="80" height="80">
+                            <h5>Pierre Léval</h5>
+                            <p class="text-muted small">Fondateur & PDG</p>
+                        </div>
+                        <div class="col-md-4 mb-3">
+                            <img src="https://ui-avatars.com/api/?name=Marie+Martin&size=80&background=28a745&color=fff" 
+                                 alt="Marie Martin" class="rounded-circle mb-2" width="80" height="80">
+                            <h5>Marie Martin</h5>
+                            <p class="text-muted small">Lead Développeuse</p>
+                        </div>
+                        <div class="col-md-4 mb-3">
+                            <img src="https://ui-avatars.com/api/?name=Thomas+Bernard&size=80&background=ffc107&color=000" 
+                                 alt="Thomas Bernard" class="rounded-circle mb-2" width="80" height="80">
+                            <h5>Thomas Bernard</h5>
+                            <p class="text-muted small">Gestionnaire de Communauté</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Statistiques -->
+            <div class="card mb-4 bg-light">
+                <div class="card-body">
+                    <div class="row text-center">
+                        <div class="col-md-3">
+                            <div class="display-5 fw-bold text-primary">1000+</div>
+                            <p class="text-muted">Membres actifs</p>
+                        </div>
+                        <div class="col-md-3">
+                            <div class="display-5 fw-bold text-info">500+</div>
+                            <p class="text-muted">Posts créés</p>
+                        </div>
+                        <div class="col-md-3">
+                            <div class="display-5 fw-bold text-success">5000+</div>
+                            <p class="text-muted">Commentaires</p>
+                        </div>
+                        <div class="col-md-3">
+                            <div class="display-5 fw-bold text-warning">4</div>
+                            <p class="text-muted">Années d'existence</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Contact -->
+            <div class="card">
+                <div class="card-header">
+                    <h4 class="mb-0"><i class="fas fa-envelope"></i> Nous Contacter</h4>
+                </div>
+                <div class="card-body">
+                    <p>Vous avez des questions, des suggestions ou des demandes ?</p>
+                    <div class="row">
+                        <div class="col-md-6 mb-3">
+                            <p class="mb-1"><strong>Email</strong></p>
+                            <p><a href="mailto:contact@forumhub.com">contact@forumhub.com</a></p>
+                        </div>
+                        <div class="col-md-6 mb-3">
+                            <p class="mb-1"><strong>Adresse</strong></p>
+                            <p>123 Rue de la Tech, Paris 75000, France</p>
+                        </div>
+                    </div>
+                    <a href="#" class="btn btn-primary">
+                        <i class="fas fa-paper-plane"></i> Nous Écrire
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}

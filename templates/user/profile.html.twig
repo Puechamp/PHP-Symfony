@@ -1,0 +1,181 @@
+{% extends "base.html.twig" %}
+
+{% block title %}Mon Profil - ForumHub{% endblock %}
+
+{% block body %}
+<div class="container-lg">
+    <div class="row">
+        <!-- Sidebar Profil -->
+        <div class="col-lg-3 mb-4">
+            <div class="card">
+                <div class="card-body text-center">
+                    <img src="https://ui-avatars.com/api/?name=Jean+Dupont&size=120&background=0D8ABC&color=fff" 
+                         alt="Profil" class="rounded-circle mb-3" width="120" height="120">
+                    <h4>Jean Dupont</h4>
+                    <p class="text-muted">@jeandupont</p>
+                    
+                    <div class="d-grid gap-2 my-3">
+                        <button class="btn btn-primary">
+                            <i class="fas fa-edit"></i> Modifier le profil
+                        </button>
+                        <button class="btn btn-outline-secondary">
+                            <i class="fas fa-lock"></i> Changer le mot de passe
+                        </button>
+                    </div>
+
+                    <hr>
+
+                    <div class="text-start">
+                        <p class="small text-muted mb-1"><i class="fas fa-calendar-alt"></i> Inscrit depuis</p>
+                        <p class="small fw-bold mb-3">10 Janvier 2026</p>
+
+                        <p class="small text-muted mb-1"><i class="fas fa-map-marker-alt"></i> Localisation</p>
+                        <p class="small fw-bold mb-3">Paris, France</p>
+
+                        <p class="small text-muted mb-1"><i class="fas fa-link"></i> Site Web</p>
+                        <p class="small fw-bold">www.jeandupont.fr</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Statistiques -->
+            <div class="card mt-3">
+                <div class="card-header">
+                    <h5 class="mb-0"><i class="fas fa-chart-bar"></i> Statistiques</h5>
+                </div>
+                <div class="card-body">
+                    <div class="list-group list-group-flush">
+                        <div class="list-group-item px-0 py-2 border-0">
+                            <small class="text-muted">Posts créés</small>
+                            <div class="h5 mb-0">0</div>
+                        </div>
+                        <div class="list-group-item px-0 py-2 border-0">
+                            <small class="text-muted">Commentaires</small>
+                            <div class="h5 mb-0">0</div>
+                        </div>
+                        <div class="list-group-item px-0 py-2 border-0">
+                            <small class="text-muted">J'aime reçus</small>
+                            <div class="h5 mb-0">0</div>
+                        </div>
+                        <div class="list-group-item px-0 py-2 border-0">
+                            <small class="text-muted">Réputation</small>
+                            <div class="h5 mb-0"><span class="badge bg-secondary">Nouveau</span></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Badges -->
+            <div class="card mt-3">
+                <div class="card-header">
+                    <h5 class="mb-0"><i class="fas fa-medal"></i> Badges</h5>
+                </div>
+                <div class="card-body">
+                    <div class="d-flex flex-wrap gap-2">
+                        <span class="badge bg-success" title="Débutant">🏅</span>
+                        <span class="badge bg-info" title="Actif">⭐</span>
+                        <span class="badge bg-warning" title="Populaire">🔥</span>
+                        <span class="badge bg-danger" title="Contributeur">💪</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Contenu principal -->
+        <div class="col-lg-9">
+            <!-- Tabs Navigation -->
+            <ul class="nav nav-tabs mb-4" role="tablist">
+                <li class="nav-item" role="presentation">
+                    <button class="nav-link active" id="posts-tab" data-bs-toggle="tab" data-bs-target="#posts" type="button">
+                        <i class="fas fa-pen"></i> Mes Posts
+                    </button>
+                </li>
+                <li class="nav-item" role="presentation">
+                    <button class="nav-link" id="comments-tab" data-bs-toggle="tab" data-bs-target="#comments" type="button">
+                        <i class="fas fa-comments"></i> Mes Commentaires
+                    </button>
+                </li>
+                <li class="nav-item" role="presentation">
+                    <button class="nav-link" id="favorites-tab" data-bs-toggle="tab" data-bs-target="#favorites" type="button">
+                        <i class="fas fa-heart"></i> Mes Favoris
+                    </button>
+                </li>
+                <li class="nav-item" role="presentation">
+                    <button class="nav-link" id="settings-tab" data-bs-toggle="tab" data-bs-target="#settings" type="button">
+                        <i class="fas fa-cog"></i> Paramètres
+                    </button>
+                </li>
+            </ul>
+
+            <!-- Tab Content -->
+            <div class="tab-content">
+                <!-- Mes Posts -->
+                <div class="tab-pane fade show active" id="posts" role="tabpanel">
+                    <div class="alert alert-secondary">
+                        <h5 class="mb-1"><i class="fas fa-info-circle"></i> Aucun post pour l'instant</h5>
+                        <p class="mb-2 text-muted">Vous n'avez pas encore publié de post. Commencez par créer votre premier sujet.</p>
+                        <a href="{{ path('post_new') }}" class="btn btn-primary btn-sm"><i class="fas fa-plus"></i> Créer un post</a>
+                    </div>
+                </div>
+
+                <!-- Mes Commentaires -->
+                <div class="tab-pane fade" id="comments" role="tabpanel">
+                    <div class="alert alert-secondary">
+                        <h6 class="mb-1"><i class="fas fa-comments"></i> Aucun commentaire</h6>
+                        <p class="mb-0 text-muted">Vous n'avez pas encore écrit de commentaire.</p>
+                    </div>
+                </div>
+
+                <!-- Mes Favoris -->
+                <div class="tab-pane fade" id="favorites" role="tabpanel">
+                    <div class="alert alert-secondary">
+                        <h6 class="mb-1"><i class="fas fa-heart"></i> Aucun favori</h6>
+                        <p class="mb-0 text-muted">Vous n'avez pas encore ajouté de favoris.</p>
+                    </div>
+                </div>
+
+                <!-- Paramètres -->
+                <div class="tab-pane fade" id="settings" role="tabpanel">
+                    <div class="card">
+                        <div class="card-header">
+                            <h5 class="mb-0">Paramètres de Confidentialité</h5>
+                        </div>
+                        <div class="card-body">
+                            <div class="form-check form-switch mb-3">
+                                <input class="form-check-input" type="checkbox" id="publicProfile" checked>
+                                <label class="form-check-label" for="publicProfile">
+                                    Rendre mon profil public
+                                </label>
+                            </div>
+                            <div class="form-check form-switch mb-3">
+                                <input class="form-check-input" type="checkbox" id="notifications" checked>
+                                <label class="form-check-label" for="notifications">
+                                    Recevoir les notifications par email
+                                </label>
+                            </div>
+                            <div class="form-check form-switch mb-3">
+                                <input class="form-check-input" type="checkbox" id="newsletter" checked>
+                                <label class="form-check-label" for="newsletter">
+                                    Recevoir la newsletter hebdomadaire
+                                </label>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="card mt-4">
+                        <div class="card-header bg-danger text-white">
+                            <h5 class="mb-0"><i class="fas fa-exclamation-triangle"></i> Zone Danger</h5>
+                        </div>
+                        <div class="card-body">
+                            <p class="text-muted">Supprimez votre compte de manière permanente</p>
+                            <button class="btn btn-danger">
+                                <i class="fas fa-trash"></i> Supprimer mon compte
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}

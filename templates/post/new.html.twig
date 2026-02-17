@@ -1,0 +1,91 @@
+{% extends "base.html.twig" %}
+
+{% block title %}Créer un nouveau post - ForumHub{% endblock %}
+
+{% block body %}
+<div class="container-lg">
+    <!-- Breadcrumb -->
+    <nav aria-label="breadcrumb">
+        <ol class="breadcrumb">
+            <li class="breadcrumb-item"><a href="{{ path('post_index') }}">Accueil</a></li>
+            <li class="breadcrumb-item active">Créer un post</li>
+        </ol>
+    </nav>
+
+    <div class="row">
+        <div class="col-lg-8 offset-lg-2">
+            <div class="card">
+                <div class="card-header">
+                    <h4 class="mb-0">
+                        <i class="fas fa-pen"></i> Créer un nouveau post
+                    </h4>
+                </div>
+                <div class="card-body">
+                    {% if form is defined %}
+                        {{ form_start(form) }}
+                        <div class="mb-3">
+                            {{ form_row(form.title) }}
+                        </div>
+                        <div class="mb-3">
+                            {{ form_row(form.content) }}
+                        </div>
+                        <div class="d-flex gap-2 flex-wrap">
+                            <button class="btn btn-primary btn-lg" type="submit">
+                                <i class="fas fa-paper-plane"></i> Publier le post
+                            </button>
+                            <a href="{{ path('post_index') }}" class="btn btn-outline-secondary btn-lg">
+                                <i class="fas fa-times"></i> Annuler
+                            </a>
+                        </div>
+                        {{ form_end(form) }}
+                    {% else %}
+                        <p class="text-muted">Le formulaire n'est pas disponible.</p>
+                    {% endif %}
+                </div>
+            </div>
+
+            <!-- Conseils -->
+            <div class="card mt-4 bg-light">
+                <div class="card-body">
+                    <h5 class="card-title fw-bold">
+                        <i class="fas fa-lightbulb"></i> Conseils pour un bon post
+                    </h5>
+                    <ul class="mb-0">
+                        <li>Écrivez un titre clair et descriptif</li>
+                        <li>Expliquez votre problème ou votre idée en détail</li>
+                        <li>Utilisez des paragraphes pour meilleure lisibilité</li>
+                        <li>Ajoutez une image si possible pour illustrer</li>
+                        <li>Soyez respectueux et constructif</li>
+                        <li>Relisez votre post avant de le publier</li>
+                        <li>Évitez le spam et les contenus offensants</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script>
+    // Prévisualisation de l'image
+    const imageInput = document.getElementById('image');
+    const imagePreview = document.getElementById('imagePreview');
+
+    imageInput.addEventListener('change', function(e) {
+        const file = e.target.files[0];
+        if (file) {
+            const reader = new FileReader();
+            reader.onload = function(event) {
+                imagePreview.innerHTML = `
+                    <div class="position-relative d-inline-block">
+                        <img src="${event.target.result}" alt="Aperçu" class="img-fluid rounded" style="max-height: 300px;">
+                        <button type="button" class="btn btn-sm btn-danger position-absolute top-0 end-0 m-2" onclick="document.getElementById('image').value=''; imagePreview.innerHTML='';">
+                            <i class="fas fa-trash"></i>
+                        </button>
+                    </div>
+                `;
+            };
+            reader.readAsDataURL(file);
+        }
+    });
+</script>
+{% endblock %}

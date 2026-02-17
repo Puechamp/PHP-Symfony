@@ -1,0 +1,275 @@
+{% extends "base.html.twig" %}
+
+{% block title %}Détail du Post - ForumHub{% endblock %}
+
+{% block body %}
+<div class="container-lg">
+    <!-- Breadcrumb -->
+    <nav aria-label="breadcrumb">
+        <ol class="breadcrumb">
+            <li class="breadcrumb-item"><a href="{{ path('post_index') }}">Accueil</a></li>
+            <li class="breadcrumb-item"><a href="#">Débutants</a></li>
+            <li class="breadcrumb-item active">Comment débuter avec Symfony ?</li>
+        </ol>
+    </nav>
+
+    <div class="row">
+        <!-- Post Principal -->
+        <div class="col-lg-8">
+            <!-- Carte du Post -->
+            <div class="card mb-4">
+                <!-- Header du Post -->
+                <div class="card-header">
+                    <div class="row align-items-center">
+                        <div class="col">
+                            <h1 class="h3 mb-3">Comment débuter avec Symfony ?</h1>
+                            <div class="post-meta">
+                                <img src="https://ui-avatars.com/api/?name=Jean+Dupont&background=0D8ABC&color=fff" 
+                                     alt="Jean Dupont" class="rounded-circle me-2" width="32" height="32">
+                                <strong>Jean Dupont</strong> • 
+                                <i class="fas fa-calendar-alt"></i> 16 Fév 2026 •
+                                <span class="badge bg-primary">Débutants</span>
+                            </div>
+                        </div>
+                        <div class="col-auto">
+                            <button class="btn btn-outline-secondary btn-sm">
+                                <i class="fas fa-flag"></i> Signaler
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Contenu du Post -->
+                <div class="card-body">
+                    <p class="lead">
+                        Bonjour à tous ! Je débute avec Symfony et j'aimerais avoir des conseils pour bien commencer. 
+                        J'ai déjà lu la documentation officielle mais j'aimerais connaître vos expériences personnelles et les pièges à éviter.
+                    </p>
+                    <p>
+                        Symfony est un framework PHP excellent, mais il y a beaucoup à apprendre. Voici les questions que je me pose :
+                    </p>
+                    <ul>
+                        <li>Quel est le meilleur environnement de développement à utiliser ?</li>
+                        <li>Comment structurer un grand projet correctement ?</li>
+                        <li>Quels bundles essentiels faut-il maîtriser ?</li>
+                        <li>Comment optimiser les performances ?</li>
+                    </ul>
+                    <p>
+                        Merci d'avance pour vos retours et conseils !
+                    </p>
+                </div>
+
+                <!-- Actions -->
+                <div class="card-footer bg-white border-top">
+                    <div class="d-flex gap-3 align-items-center flex-wrap">
+                        <button class="btn btn-outline-primary">
+                            <i class="fas fa-thumbs-up"></i> J'aime (24)
+                        </button>
+                        <button class="btn btn-outline-secondary">
+                            <i class="fas fa-heart"></i> Favori
+                        </button>
+                        <button class="btn btn-outline-secondary">
+                            <i class="fas fa-share"></i> Partager
+                        </button>
+                        <div class="ms-auto text-muted small">
+                            <i class="fas fa-eye"></i> 342 vues
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Section Commentaires -->
+            <div class="comment-section">
+                <h4 class="mb-4">
+                    <i class="fas fa-comments"></i> Commentaires (3)
+                </h4>
+
+                <!-- Formulaire Ajouter Commentaire -->
+                <div class="card mb-4 bg-light">
+                    <div class="card-body">
+                        <form method="POST">
+                            <div class="mb-3">
+                                <label for="commentAuthor" class="form-label fw-bold">Votre nom</label>
+                                <input type="text" class="form-control" id="commentAuthor" 
+                                       placeholder="Votre nom" required>
+                            </div>
+                            <div class="mb-3">
+                                <label for="commentText" class="form-label fw-bold">Votre commentaire</label>
+                                <textarea class="form-control" id="commentText" rows="4" 
+                                          placeholder="Écrivez votre commentaire ici..." required></textarea>
+                            </div>
+                            <button type="submit" class="btn btn-primary">
+                                <i class="fas fa-paper-plane"></i> Publier
+                            </button>
+                        </form>
+                    </div>
+                </div>
+
+                <!-- Liste des Commentaires -->
+                <div class="comment">
+                    <div class="d-flex justify-content-between align-items-start mb-2">
+                        <div class="d-flex align-items-center">
+                            <img src="https://ui-avatars.com/api/?name=Marie+Martin&background=0D8ABC&color=fff" 
+                                 alt="Marie Martin" class="rounded-circle me-2" width="40" height="40">
+                            <div>
+                                <div class="comment-author">Marie Martin</div>
+                                <div class="comment-date">
+                                    <i class="fas fa-clock"></i> 16 Fév 2026 à 10:30
+                                </div>
+                            </div>
+                        </div>
+                        <button class="btn btn-sm btn-outline-secondary">
+                            <i class="fas fa-ellipsis-h"></i>
+                        </button>
+                    </div>
+                    <p class="mb-3">
+                        Bienvenue ! Symfony est vraiment puissant. Je te recommande de commencer par les bundles essentiels : 
+                        HttpFoundation, Routing, et DependencyInjection. Après cela, tu peux explorer les autres.
+                    </p>
+                    <div class="d-flex gap-2">
+                        <button class="btn btn-sm btn-outline-primary">
+                            <i class="fas fa-thumbs-up"></i> J'aime
+                        </button>
+                        <button class="btn btn-sm btn-outline-secondary">
+                            <i class="fas fa-reply"></i> Répondre
+                        </button>
+                    </div>
+                </div>
+
+                <hr class="my-3">
+
+                <div class="comment">
+                    <div class="d-flex justify-content-between align-items-start mb-2">
+                        <div class="d-flex align-items-center">
+                            <img src="https://ui-avatars.com/api/?name=Pierre+Leval&background=0D8ABC&color=fff" 
+                                 alt="Pierre Léval" class="rounded-circle me-2" width="40" height="40">
+                            <div>
+                                <div class="comment-author">Pierre Léval</div>
+                                <div class="comment-date">
+                                    <i class="fas fa-clock"></i> 16 Fév 2026 à 11:15
+                                </div>
+                            </div>
+                        </div>
+                        <button class="btn btn-sm btn-outline-secondary">
+                            <i class="fas fa-ellipsis-h"></i>
+                        </button>
+                    </div>
+                    <p class="mb-3">
+                        N'hésite pas à consulter les recettes (recipes) du site officiel. Elles sont très utiles et te permettront 
+                        de configurer rapidement les bundles populaires. C'est une excellente ressource pour débuter !
+                    </p>
+                    <div class="d-flex gap-2">
+                        <button class="btn btn-sm btn-outline-primary">
+                            <i class="fas fa-thumbs-up"></i> J'aime
+                        </button>
+                        <button class="btn btn-sm btn-outline-secondary">
+                            <i class="fas fa-reply"></i> Répondre
+                        </button>
+                    </div>
+                </div>
+
+                <hr class="my-3">
+
+                <div class="comment">
+                    <div class="d-flex justify-content-between align-items-start mb-2">
+                        <div class="d-flex align-items-center">
+                            <img src="https://ui-avatars.com/api/?name=Sophie+Martin&background=0D8ABC&color=fff" 
+                                 alt="Sophie Martin" class="rounded-circle me-2" width="40" height="40">
+                            <div>
+                                <div class="comment-author">Sophie Martin</div>
+                                <div class="comment-date">
+                                    <i class="fas fa-clock"></i> 16 Fév 2026 à 14:45
+                                </div>
+                            </div>
+                        </div>
+                        <button class="btn btn-sm btn-outline-secondary">
+                            <i class="fas fa-ellipsis-h"></i>
+                        </button>
+                    </div>
+                    <p class="mb-3">
+                        La communauté Symfony est très active sur Slack si tu as besoin d'aide en direct. 
+                        Les gens y sont très sympathiques et heureux d'aider les débutants. N'hésite pas à rejoindre !
+                    </p>
+                    <div class="d-flex gap-2">
+                        <button class="btn btn-sm btn-outline-primary">
+                            <i class="fas fa-thumbs-up"></i> J'aime
+                        </button>
+                        <button class="btn btn-sm btn-outline-secondary">
+                            <i class="fas fa-reply"></i> Répondre
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Sidebar -->
+        <div class="col-lg-4">
+            <!-- Informations du Post -->
+            <div class="card mb-4">
+                <div class="card-header">
+                    <h5 class="mb-0"><i class="fas fa-info-circle"></i> Informations</h5>
+                </div>
+                <div class="card-body">
+                    <div class="list-group list-group-flush">
+                        <div class="list-group-item px-0 py-2 border-0">
+                            <small class="text-muted">Créé le</small>
+                            <div class="small fw-bold">16 Fév 2026</div>
+                        </div>
+                        <div class="list-group-item px-0 py-2 border-0">
+                            <small class="text-muted">Catégorie</small>
+                            <div>
+                                <span class="badge bg-primary">Débutants</span>
+                            </div>
+                        </div>
+                        <div class="list-group-item px-0 py-2 border-0">
+                            <small class="text-muted">Auteur</small>
+                            <div class="small fw-bold">Jean Dupont</div>
+                        </div>
+                        <div class="list-group-item px-0 py-2 border-0">
+                            <small class="text-muted">Tags</small>
+                            <div>
+                                <span class="badge bg-info">Symfony</span>
+                                <span class="badge bg-info">Débutant</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Posts Similaires -->
+            <div class="card mb-4">
+                <div class="card-header">
+                    <h5 class="mb-0"><i class="fas fa-link"></i> Posts Similaires</h5>
+                </div>
+                <div class="card-body">
+                    <div class="list-group list-group-flush">
+                        <a href="#" class="list-group-item list-group-item-action px-0 py-2">
+                            <small class="text-muted">Installation</small>
+                            <div class="small fw-bold">Installation de Symfony</div>
+                        </a>
+                        <a href="#" class="list-group-item list-group-item-action px-0 py-2">
+                            <small class="text-muted">Premiers pas</small>
+                            <div class="small fw-bold">Créer votre première app</div>
+                        </a>
+                        <a href="#" class="list-group-item list-group-item-action px-0 py-2">
+                            <small class="text-muted">Ressources</small>
+                            <div class="small fw-bold">Documentation et tutoriels</div>
+                        </a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- CTA Membership -->
+            <div class="card bg-gradient" style="background: linear-gradient(135deg, #0d6efd, #0b5ed7);">
+                <div class="card-body text-white text-center">
+                    <h6 class="fw-bold mb-2">Rejoignez notre communauté !</h6>
+                    <p class="small mb-3">Plus de 1000 développeurs Symfony actifs</p>
+                    <button class="btn btn-light btn-sm w-100">
+                        <i class="fas fa-user-plus"></i> S'inscrire
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}

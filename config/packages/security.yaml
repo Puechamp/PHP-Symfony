@@ -1,0 +1,33 @@
+security:
+    password_hashers:
+        App\Entity\User:
+            algorithm: auto
+
+
+    providers:
+        app_user_provider:
+            entity:
+                class: App\Entity\User
+                property: email
+        # used to reload user from session & other features (e.g. switch_user)
+
+    firewalls:
+        dev:
+            pattern: ^/(_(profiler|wdt)|css|images|js)/
+            security: false
+
+        main:
+            lazy: true
+            provider: app_user_provider
+            form_login:
+                login_path: auth_login
+                check_path: auth_login
+                username_parameter: email
+                password_parameter: password
+            logout:
+                path: app_logout
+                target: post_index
+
+    access_control:
+        - { path: ^/post/nouveau, roles: ROLE_USER }
+        - { path: ^/profil, roles: ROLE_USER }
